@@ -1,41 +1,55 @@
 import React from "react";
-import { NavbarToggler, Collapse, NavLink, Navbar, Nav, NavItem, UncontrolledDropdown, DropdownToggle, NavbarBrand, NavbarText, DropdownMenu, DropdownItem } from 'reactstrap'
+import { Navbar, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, NavbarBrand, NavbarText, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class MyNavbar extends React.Component {
 
 render() {
     return (
-        <div>
-            <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">Parcel Group 5</NavbarBrand>
-                <NavbarToggler onClick={this.toggle} />
-                <Collapse navbar>
-                    <Nav className="ml-auto" navbar>
-                    <NavItem>
-                        <NavLink href="/">Products</NavLink>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <NavbarBrand>Parcel Group 5</NavbarBrand>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                    <NavItem active>
+                        <NavLink href="/home">Home</NavLink>
+                        <span class="sr-only">(current)</span>
                     </NavItem>
-                    <UncontrolledDropdown nav inNavbar>
+                    <li class="nav-item">
+                        <NavLink href="/">About</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink href="/">Services</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink href="/">Contact</NavLink>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <UncontrolledDropdown nav inNavbar>
                         <DropdownToggle nav caret>
                             Hello, username
                         </DropdownToggle>
-                        <DropdownMenu right>
+                        <DropdownMenu end>
                             <DropdownItem>
-                                <Link href="/">Cart</Link>
+                                <Link to="/cart">Cart (0)</Link>
                             </DropdownItem>
                             <DropdownItem>
-                                <Link href="/">History</Link>
+                                <Link to="/history">History</Link>
                             </DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem>
-                                <Link href="/">Logout</Link>
+                            <DropdownItem onClick={this.props.logoutUser}>
+                                Logout
                             </DropdownItem>
                         </DropdownMenu>
-                    </UncontrolledDropdown>
-                    </Nav>
-                </Collapse>
-            </Navbar>
-        </div>
+                        </UncontrolledDropdown>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         )
     }
 }

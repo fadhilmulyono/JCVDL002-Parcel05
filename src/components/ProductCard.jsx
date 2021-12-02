@@ -5,23 +5,23 @@ import { Link } from 'react-router-dom'
 class ProductCard extends React.Component {
     render() {
         return (
-        <div className="card product-card">
-            <img src={this.props.productData.productImage} alt=""/>
-            <div className="mt-2">
-            <div>
-                {/* 
-                localhost:3000/product-detail/{id barang}
-                */}
-                <Link to={`/product-detail/${this.props.productData.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-                <h6>{this.props.productData.productName}</h6>
-                </Link>
-                <span className="text-muted">Rp. {this.props.productData.price}</span>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top" src={this.props.productData.productImage} alt="{this.props.productData.productName}"/>
+                    <div class="card-body">
+                        {/* localhost:3000/product-detail/{id barang} */}
+                        <Link to={`/product-detail/${this.props.productData.id}`}>
+                        <h4 class="card-title">{this.props.productData.productName}</h4>
+                        </Link>
+                        <h5>Rp. {this.props.productData.price}</h5>
+                        <p class="card-text">{this.props.productData.description}</p>
+                    </div>
+                    <div class="card-footer">
+                        <button className="btn btn-primary">Detail</button>&nbsp;&nbsp;
+                        <button className="btn btn-success">+ keranjang</button>
+                    </div>
+                </div>
             </div>
-            <div className="d-flex flex-row justify-content-end">
-                <button className="btn btn-primary mt-2">+ keranjang</button>
-            </div>
-            </div>
-        </div>
         );
     }
 }
