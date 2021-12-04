@@ -48,7 +48,16 @@ class ProductDetail extends React.Component {
                                 <h4>Rp. {this.state.productData.price}</h4>
                                 <p class="card-text">{this.state.productData.description}</p>
                                 <hr/>
-                                <a class="btn btn-success">+ keranjang</a>
+                                <div className="d-flex flex-row align-items-center">
+                                    <button onClick={() => this.qtyBtnHandler("decrement")} className="btn btn-primary mr-4">
+                                    -</button>
+                                    {this.state.quantity}
+                                    <button onClick={() => this.qtyBtnHandler("increment")} className="btn btn-primary mx-4">
+                                    +</button>
+                                </div>
+                                <button onClick={this.addToCartHandler} className="btn btn-success mt-3">
+                                    Add to cart
+                                </button>
                             </div>
                         </div>
                         <div class="card card-outline-secondary my-4">
@@ -65,7 +74,7 @@ class ProductDetail extends React.Component {
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
                                 <small class="text-muted">Posted by Anonymous on 3/1/17</small>
                                 <hr/>
-                                <a class="btn btn-success">Leave a Review</a>
+                                <a href="#" class="btn btn-success">Leave a Review</a>
                             </div>
                         </div>
 

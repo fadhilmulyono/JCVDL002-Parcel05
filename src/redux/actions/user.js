@@ -37,7 +37,7 @@ export const loginUser = ({ username, password }) => {
         if (password === result.data[0].password) {
           delete result.data[0].password
 
-          localStorage.setItem("userDataEmmerce", JSON.stringify(result.data[0]))
+          localStorage.setItem("userDataFinalProject", JSON.stringify(result.data[0]))
 
           dispatch({
             type: "USER_LOGIN",
@@ -65,7 +65,7 @@ export const loginUser = ({ username, password }) => {
 }
 
 export const logoutUser = () => {
-  localStorage.removeItem("userDataEmmerce");
+  localStorage.removeItem("userDataFinalProject");
 
   return {
     type: "USER_LOGOUT"
@@ -82,7 +82,7 @@ export const userKeepLogin = (userData) => {
     .then((result) => {
       delete result.data[0].password
 
-      localStorage.setItem("userDataEmmerce", JSON.stringify(result.data[0]))
+      localStorage.setItem("userDataFinalProject", JSON.stringify(result.data[0]))
 
       dispatch({
         type: "USER_LOGIN",

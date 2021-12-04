@@ -1,6 +1,8 @@
 import React from "react";
 import { Navbar, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, NavbarBrand, NavbarText, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logoutUser } from '../redux/actions/user';
 
 class MyNavbar extends React.Component {
 
@@ -8,16 +10,16 @@ render() {
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <NavbarBrand>Parcel Group 5</NavbarBrand>
+                <NavbarBrand style={{color:"white"}} >Parcel Group 5</NavbarBrand>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                    <NavItem active>
+                    <li class="nav-item active">
                         <NavLink href="/home">Home</NavLink>
                         <span class="sr-only">(current)</span>
-                    </NavItem>
+                    </li>
                     <li class="nav-item">
                         <NavLink href="/">About</NavLink>
                     </li>
@@ -28,23 +30,39 @@ render() {
                         <NavLink href="/">Contact</NavLink>
                     </li>
                     <li class="nav-item dropdown">
-                        <UncontrolledDropdown nav inNavbar>
-                        <DropdownToggle nav caret>
-                            Hello, username
-                        </DropdownToggle>
-                        <DropdownMenu end>
-                            <DropdownItem>
-                                <Link to="/cart">Cart (0)</Link>
-                            </DropdownItem>
-                            <DropdownItem>
-                                <Link to="/history">History</Link>
-                            </DropdownItem>
-                            <DropdownItem divider />
-                            <DropdownItem onClick={this.props.logoutUser}>
-                                Logout
-                            </DropdownItem>
-                        </DropdownMenu>
-                        </UncontrolledDropdown>
+                    {
+                        this.props.userGlobal.username ?
+                        <>
+                            <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle nav caret>
+                                    Hello, {this.props.userGlobal.username}
+                                </DropdownToggle>
+                                <DropdownMenu end>
+                                    <DropdownItem>
+                                        <Link to="/cart">Cart (0)</Link>
+                                    </DropdownItem>
+                                    <DropdownItem>
+                                        <Link to="/history">History</Link>
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem onClick={this.props.logoutUser}>
+                                        Logout
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                    {
+                                        this.props.userGlobal.role === "admin" ?
+                                        <DropdownItem>
+                                            <Link to="/admin">Admin</Link>
+                                        </DropdownItem>
+                                        : null
+                                    }
+                                </DropdownMenu>
+                            </UncontrolledDropdown>
+                        </> :
+                        <NavbarText>
+                            <Link to="/login">Login</Link> | <Link to="/register">Register</Link>
+                        </NavbarText>
+                    }
                     </li>
                     </ul>
                 </div>
@@ -54,4 +72,15 @@ render() {
     }
 }
 
-export default (MyNavbar);
+const mapStateToProps = (state) => {
+  return {
+    userGlobal: state.user,
+    cartGlobal: state.cart,
+  }
+}
+
+const mapDispatchToProps = {
+  logoutUser,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyNavbar);
