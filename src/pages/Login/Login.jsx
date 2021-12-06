@@ -54,6 +54,7 @@ class Login extends React.Component {
                         </form>
                         <div class="text-center">
                             <Link class="d-block small mt-3" to="/register">Register an Account</Link>
+                            <Link class="d-block small" to="/forgotpassword">Forgot Password?</Link>
                         </div>
                     </div>
                 </div>
