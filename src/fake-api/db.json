@@ -4,6 +4,8 @@
       "fullName": "Super Admin",
       "username": "admin",
       "email": "admin@mail.com",
+      "gender": "male",
+      "address": "Purwadhika School",
       "password": "admin",
       "role": "admin",
       "id": 1
@@ -12,6 +14,8 @@
       "fullName": "Super User",
       "username": "user",
       "email": "user@mail.com",
+      "gender": "male",
+      "address": "Purwadhika School",
       "password": "user",
       "role": "user",
       "id": 2
@@ -142,7 +146,7 @@
       "id": 16,
       "productName": "Ikan",
       "price": 13000,
-      "productImage": "https://d1bpj0tv6vfxyp.cloudfront.net/ketahu5jenisgaramdanmanfaatnyauntukkesehatanhalodoc.jpg",
+      "productImage": "https://asset.kompas.com/crops/x7Dv57gmoj10Py6SrCrvrB1vvhQ=/0x0:1000x667/750x500/data/photo/2018/11/21/1655713339.jpg",
       "description": "Ayo makan ikan, nanti saya tenggelamkan.",
       "category": "ikan"
     },
@@ -150,7 +154,7 @@
       "id": 17,
       "productName": "Udang",
       "price": 13000,
-      "productImage": "https://www.topsatu.com/wp-content/uploads/2020/01/minyak.png",
+      "productImage": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1604269720/attached_image/risiko-makan-udang-bagi-pengidap-alergi-boga-bahari.jpg",
       "description": "Makan seafood.",
       "category": "seafood"
     },
@@ -158,15 +162,15 @@
       "id": 18,
       "productName": "Jeruk",
       "price": 500,
-      "productImage": "https://pict-b.sindonews.net/dyn/620/pena/news/2021/04/13/171/395612/ramadhan-hingga-idul-fitri-stok-gas-elpiji-di-depok-dijamin-aman-dan-harga-tetap-djd.jpg",
-      "description": "Beras untuk dimasak menjadi nasi.",
+      "productImage": "https://img.beritasatu.com/cache/beritasatu/910x580-2/1587634914.jpg",
+      "description": "Bertas untuk dimasak menjadi nasi.",
       "category": "buah"
     },
     {
       "id": 19,
       "productName": "Stroberi",
       "price": 3400,
-      "productImage": "https://asset.kompas.com/crops/SUtUYLeiCclWljut0zrslqBE7HM=/0x0:1000x667/750x500/data/photo/2021/10/04/615a966655301.jpg",
+      "productImage": "https://img.okezone.com/content/2018/03/07/481/1869033/5-efek-samping-terlalu-banyak-makan-stroberi-yang-jarang-diketahui-96lyRQK4Uf.jpg",
       "description": "Beras untuk dimasak menjadi nasi.",
       "category": "buah"
     },
@@ -174,9 +178,20 @@
       "id": 20,
       "productName": "Wortel",
       "price": 8500,
-      "productImage": "https://image-cdn.medkomtek.com/ClRw2ik-rCj19k_vcudj3qSpgkc=/1200x675/smart/klikdokter-media-buckets/medias/2308918/original/053780800_1571798592-Kedelai-Biji-bijian-dengan-Beragam-Manfaat-By-nnattalli-shutterstock.jpg",
+      "productImage": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1612150227/attached_image/mengaplikasikan-khasiat-jus-wortel-pada-konsumsi-harian-anda.jpg",
       "description": "Beras untuk dimasak menjadi nasi.",
       "category": "sayur"
+    }
+  ],
+  "carts": [
+    {
+      "userId": 2,
+      "productId": 1,
+      "price": 8800,
+      "productName": "Beras",
+      "productImage": "https://static.republika.co.id/uploads/images/inpicture_slide/beras_200607115032-766.jpg",
+      "quantity": 1,
+      "id": 1
     }
   ]
 }

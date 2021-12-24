@@ -39,8 +39,7 @@ render() {
                                 </DropdownToggle>
                                 <DropdownMenu end>
                                     <DropdownItem>
-                                        <Link to="/cart">Cart
-                                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                                        <Link to="/cart">Cart <span class="badge badge-pill badge-dark">{this.props.cartGlobal.cartList.length}</span> 
                                         </Link>
                                     </DropdownItem>
                                     <DropdownItem>

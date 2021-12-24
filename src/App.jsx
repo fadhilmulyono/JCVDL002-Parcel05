@@ -6,6 +6,7 @@ import "../src/assets/styles/sb-admin.min.css";
 
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
+import Cart from "./pages/Cart";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -41,6 +42,7 @@ class App extends React.Component {
               <Route component={Register} path="/register"/>
               <Route component={ForgotPassword} path="/forgotpassword"/>
               <Route component={Admin} path="/admin" />
+              <Route component={Cart} path="/cart" />
               <Route component={History} path="/history" />
               <Route component={ProductDetail} path="/product-detail/:productId" />
               <Route component={Home} path="/" />

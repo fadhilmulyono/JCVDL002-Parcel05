@@ -116,12 +116,13 @@ class Cart extends React.Component {
 
   render() {
     return (
-      <div className="p-5 text-center">
-        <h1>Cart</h1>
-        <div className="row mt-5">
-          <div className="col-9 text-center">
-            <table className="table">
-              <thead className="thead-light">
+      <div class="container">
+        <div class="row">
+          <div className="col-lg-9">
+            <h2 class="my-4">My Shopping Cart</h2>
+              <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
                 <tr>
                   <th>Name</th>
                   <th>Price</th>
@@ -134,7 +135,7 @@ class Cart extends React.Component {
               <tbody>
                 {this.renderCart()}
               </tbody>
-              <tfoot className="bg-light">
+              <tfoot>
                 <tr>
                   <td colSpan="6">
                     <button onClick={this.checkoutModeToggle} className="btn btn-success">
@@ -143,16 +144,15 @@ class Cart extends React.Component {
                   </td>
                 </tr>
               </tfoot>
-            </table>
+              </table>
+            </div>
           </div>
           {
             this.state.isCheckoutMode ? 
-            <div className="col-3">
+            <div className="col-lg-3">
               {/* Form checkout */}
-              <div className="card text-left">
-                <div className="card-header">
-                  <strong>Order Summary</strong>
-                </div>
+              <div class="card my-4">
+                <h5 class="card-header">Order Details</h5>
                 <div className="card-body">
                   <div className="d-flex my-2 flex-row justify-content-between align-items-center">
                     <span className="font-weight-bold">Subtotal Price</span>
@@ -168,14 +168,12 @@ class Cart extends React.Component {
                   </div>
                 </div>
                 <div className="card-body border-top">
-                  <label htmlFor="recipientName">Recipient Name</label>
-                  <input onChange={this.inputHandler} type="text" className="form-control mb-3" name="recipientName"/>
-                  <label htmlFor="address">Address</label>
-                  <input onChange={this.inputHandler} type="text" className="form-control" name="address"/>
+                  <input onChange={this.inputHandler} value="Super Customer" type="text" className="form-control mb-3" name="recipientName" disabled/>
+                  <input onChange={this.inputHandler} value="Purwadhika School" type="text" className="form-control" name="address" disabled/>
                 </div>
                 <div className="card-footer">
                   <div className="d-flex flex-row justify-content-between align-items-center">
-                    <input onChange={this.inputHandler} name="payment" className="form-control mx-1" type="number"/>
+                    <input onChange={this.inputHandler} placeholder="Pay Amount" name="payment" className="form-control mx-1" type="number"/>
                     <button onClick={this.payBtnHandler} className="btn btn-success mx-1">Pay</button>
                   </div>
                 </div>

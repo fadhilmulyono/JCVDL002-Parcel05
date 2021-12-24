@@ -17,8 +17,9 @@ class ProductCard extends React.Component {
                         <p class="card-text">{this.props.productData.description}</p>
                     </div>
                     <div class="card-footer">
-                        <button className="btn btn-primary">Detail</button>&nbsp;&nbsp;
-                        <button className="btn btn-success">+ keranjang</button>
+                        <Link to={`/product-detail/${this.props.productData.id}`}>
+                        <button className="btn btn-primary">Detail</button>
+                        </Link>
                     </div>
                 </div>
             </div>

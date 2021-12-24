@@ -87,16 +87,18 @@ class Admin extends React.Component {
         return (
           <tr>
             <td>{val.id}</td>
-            <td><input value={this.state.editProductName} onChange={this.inputHandler} type="text" className="form-control" name="editProductName"/></td>
-            <td><input value={this.state.editPrice} onChange={this.inputHandler} type="number" className="form-control" name="editPrice"/></td>
-            <td><input value={this.state.editProductImage} onChange={this.inputHandler} type="text" className="form-control" name="editProductImage"/></td>
-            <td><input value={this.state.editDescription} onChange={this.inputHandler} type="text" className="form-control" name="editDescription"/></td>
+            <td><input placeholder="Nama Produk" value={this.state.editProductName} onChange={this.inputHandler} type="text" className="form-control" name="editProductName"/></td>
+            <td><input placeholder="Harga Produk" value={this.state.editPrice} onChange={this.inputHandler} type="number" className="form-control" name="editPrice"/></td>
+            <td><input placeholder="Foto Produk" value={this.state.editProductImage} onChange={this.inputHandler} type="text" className="form-control" name="editProductImage"/></td>
+            <td><input placeholder="Deskripsi Produk" value={this.state.editDescription} onChange={this.inputHandler} type="text" className="form-control" name="editDescription"/></td>
             <td>
               <select value={this.state.editCategory} onChange={this.inputHandler} name="editCategory" className="form-control">
-                <option value="">All Items</option>
-                <option value="kaos">Kaos</option>
-                <option value="celana">Celana</option>
-                <option value="aksesoris">Aksesoris</option>
+                <option value="">Kategori</option>
+                <option value="bahanpokok">Bahan pokok</option>
+                <option value="ikan">Ikan</option>
+                <option value="seafood">Seafood</option>
+                <option value="buah">Buah-buahan</option>
+                <option value="sayur">Sayuran</option>
               </select>
             </td>
             <td>
@@ -117,7 +119,7 @@ class Admin extends React.Component {
           <td>{val.description}</td>
           <td>{val.category}</td>
           <td>
-            <button onClick={() => this.editToggle(val)} className="btn btn-secondary">Edit</button>
+            <button onClick={() => this.editToggle(val)} className="btn btn-warning">Edit</button>
           </td>
           <td>
             <button onClick={() => this.deleteBtnHandler(val.id)} className="btn btn-danger">Delete</button>
@@ -170,50 +172,54 @@ class Admin extends React.Component {
         <div className="row">
           <div className="col-12 text-center">
             <h1>Manage Products</h1>
-            <table className="table mt-4">
-              <thead className="thead-light">
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Image</th>
-                  <th>Description</th>
-                  <th>Category</th>
-                  <th colSpan="2">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.renderProducts()}
-              </tbody>
-              <tfoot className="bg-light">
-                <tr>
-                  <td></td>
-                  <td>
-                    <input value={this.state.addProductName} onChange={this.inputHandler} name="addProductName" type="text" className="form-control" />
-                  </td>
-                  <td>
-                    <input value={this.state.addPrice} onChange={this.inputHandler} name="addPrice" type="number" className="form-control" />
-                  </td>
-                  <td>
-                    <input value={this.state.addProductImage} onChange={this.inputHandler} name="addProductImage" type="text" className="form-control" />
-                  </td>
-                  <td>
-                    <input value={this.state.addDescription} onChange={this.inputHandler} name="addDescription" type="text" className="form-control" />
-                  </td>
-                  <td>
-                    <select onChange={this.inputHandler} name="addCategory" className="form-control">
-                      <option value="">All Items</option>
-                      <option value="kaos">Kaos</option>
-                      <option value="celana">Celana</option>
-                      <option value="aksesoris">Aksesoris</option>
-                    </select>
-                  </td>
-                  <td colSpan="2">
-                    <button onClick={this.addNewProduct} className="btn btn-info">Add Product</button>
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
+              <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Name</th>
+                          <th>Price</th>
+                          <th>Image</th>
+                          <th>Description</th>
+                          <th>Category</th>
+                          <th colSpan="2">Action</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                          <tr>
+                          <th></th>
+                          <th>
+                              <input placeholder="Nama Produk" value={this.state.addProductName} onChange={this.inputHandler} name="addProductName" type="text" className="form-control" />
+                          </th>
+                          <th>
+                              <input placeholder="Harga Produk" value={this.state.addPrice} onChange={this.inputHandler} name="addPrice" type="number" className="form-control" />
+                          </th>
+                          <th>
+                              <input placeholder="Gambar Produk" value={this.state.addProductImage} onChange={this.inputHandler} name="addProductImage" type="text" className="form-control" />
+                          </th>
+                          <th>
+                              <input placeholder="Deskripsi Produk" value={this.state.addDescription} onChange={this.inputHandler} name="addDescription" type="text" className="form-control" />
+                          </th>
+                          <th>
+                              <select onChange={this.inputHandler} name="addCategory" className="form-control">
+                              <option value="">Kategori</option>
+                              <option value="bahanpokok">Bahan pokok</option>
+                              <option value="ikan">Ikan</option>
+                              <option value="seafood">Seafood</option>
+                              <option value="buah">Buah-buahan</option>
+                              <option value="sayur">Sayuran</option>
+                              </select>
+                          </th>
+                          <th colSpan="2">
+                              <button onClick={this.addNewProduct} className="btn btn-info">Add Product</button>
+                          </th>
+                          </tr>
+                      </tfoot>
+                      <tbody>
+                        {this.renderProducts()}
+                      </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
